@@ -27,7 +27,9 @@ and locate the file called .env.example
 
 Add your API to the .env file using the exact variable name NEXT_PUBLIC_CURRENCY_API_KEY
 
-```NEXT_PUBLIC_CURRENCY_API_KEY="replaceWithAPIKey" ```
+```
+NEXT_PUBLIC_CURRENCY_API_KEY="replaceWithAPIKey"
+```
 
 
 Enter these commands in three different terminals
