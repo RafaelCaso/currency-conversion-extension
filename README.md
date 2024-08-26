@@ -25,7 +25,7 @@ and locate the file called .env.example
 
 > rename this to simply .env
 
-Add your API to the .env file using the exact variable name NEXT_PUBLIC_CURRENCY_API_KEY
+Add your API key to the .env file using the exact variable name NEXT_PUBLIC_CURRENCY_API_KEY
 
 ```
 NEXT_PUBLIC_CURRENCY_API_KEY="replaceWithAPIKey"
