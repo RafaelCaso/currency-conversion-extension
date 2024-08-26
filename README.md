@@ -4,7 +4,9 @@
 
 2) In terminal, use the below snippet to bootstrap a new ScaffoldEth project with the currency-conversion-extension
 
-```npx create-eth@latest -e rafaelcaso/currency-conversion-extension```
+```
+npx create-eth@latest -e rafaelcaso/currency-conversion-extension
+```
 
 > You will be prompted for a project name and a choice of Hardhat or Foundry
 
