@@ -1,5 +1,4 @@
 # Currency Conversion Extension for ScaffoldETH2
----
 
 1) Visit [ExchangeRate-API](https://www.exchangerate-api.com/) to get a free API key.
 
