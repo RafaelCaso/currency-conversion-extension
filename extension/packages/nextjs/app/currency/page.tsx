@@ -43,10 +43,16 @@ const Currency = () => {
 
     // Filter suggestions based on input value
     if (value) {
-      const filteredSuggestions = validCurrencySymbols.filter(symbol => symbol.includes(value));
+      const filteredSuggestions = validCurrencySymbols.filter(symbol => symbol.startsWith(value));
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSubmit();
     }
   };
 
@@ -92,16 +98,21 @@ const Currency = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="card w-96 bg-primary text-primary-content mt-4">
-          <div className="card-title justify-center pt-5">
-            <h1>Select Currency Symbol</h1>
-          </div>
-          <div className="card-body">
-            <div>
-              <input type="text" value={inputValue} onChange={handleInputChange} />
+      <div className="flex items-center justify-center min-h-screen bg-base-300">
+        <div className="card w-80 bg-primary text-primary-content shadow-xl">
+          <div className="card-body p-6">
+            <h2 className="card-title text-xl font-semibold mb-4 text-center">Select Currency Symbol</h2>
+            <div className="form-control">
+              <input
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
+                className="input input-bordered w-full bg-primary-focus text-primary-content focus:ring-2 focus:ring-secondary"
+                placeholder="Enter currency symbol"
+              />
               {suggestions.length > 0 && (
-                <ul className="suggestions-list">
+                <ul className="menu bg-primary-focus w-full rounded-md mt-1 max-h-40 overflow-auto">
                   {suggestions.map(symbol => (
                     <li
                       key={symbol}
@@ -110,15 +121,14 @@ const Currency = () => {
                         setAppCurrencySymbol(symbol);
                         setSuggestions([]);
                       }}
-                      className="suggestion-item"
                     >
-                      {symbol}
+                      <a className="text-primary-content hover:bg-primary">{symbol}</a>
                     </li>
                   ))}
                 </ul>
               )}
             </div>
-            <button className="btn bg-secondary" onClick={handleSubmit}>
+            <button className="btn btn-secondary mt-4 w-full" onClick={handleSubmit}>
               Submit
             </button>
           </div>
